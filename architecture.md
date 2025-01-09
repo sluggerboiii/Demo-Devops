@@ -2,28 +2,28 @@
 graph TB
     subgraph "Google Cloud Platform VM"
         subgraph "Docker Environment"
-            NGINX[NGINX Reverse Proxy<br/>Port 80, 443]
+            NGINX[/NGINX Reverse Proxy<br/>Port 80, 443/]
             
             subgraph "Services"
-                API[API Gateway<br/>Port 3000<br/>Node.js]
-                GO[Go Service<br/>Port 4000]
-                NODE[Node.js App<br/>Port 3000]
+                API[/API Gateway<br/>Port 3000<br/>Node.js/]
+                GO[/Go Service<br/>Port 4000/]
+                NODE[/Node.js App<br/>Port 3000/]
             end
             
             subgraph "Monitoring Stack"
-                GRAF[Grafana<br/>Port 3001]
-                PROM[Prometheus<br/>Port 9090]
-                MON[Monitoring Script<br/>Python<br/>Every 30min]
+                GRAF[/Grafana<br/>Port 3001/]
+                PROM[/Prometheus<br/>Port 9090/]
+                MON[/Monitoring Script<br/>Python<br/>Every 30min/]
             end
             
             subgraph "Database"
-                MONGO[MongoDB<br/>Port 27017]
+                MONGO[/MongoDB<br/>Port 27017/]
             end
         end
     end
     
-    USER[External User]
-    EMAIL[Gmail SMTP<br/>Alerts]
+    USER[/External User/]
+    EMAIL[/Gmail SMTP<br/>Alerts/]
     
     %% External connections
     USER -->|HTTPS| NGINX
@@ -51,11 +51,11 @@ graph TB
     NODE -.->|Read/Write| MONGO
     
     %% Styling
-    classDef external fill:#f9f,stroke:#333,stroke-width:2px
-    classDef proxy fill:#85C1E9,stroke:#333,stroke-width:2px
-    classDef service fill:#82E0AA,stroke:#333,stroke-width:2px
-    classDef monitoring fill:#F8C471,stroke:#333,stroke-width:2px
-    classDef database fill:#BB8FCE,stroke:#333,stroke-width:2px
+    classDef external fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+    classDef proxy fill:#85C1E9,stroke:#333,stroke-width:2px,color:#000
+    classDef service fill:#82E0AA,stroke:#333,stroke-width:2px,color:#000
+    classDef monitoring fill:#F8C471,stroke:#333,stroke-width:2px,color:#000
+    classDef database fill:#BB8FCE,stroke:#333,stroke-width:2px,color:#000
     
     class USER,EMAIL external
     class NGINX proxy
